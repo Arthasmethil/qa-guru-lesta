@@ -40,3 +40,15 @@ tasks.withType(Test).configureEach {
         }
     }
 }
+
+tasks.register('smoke_test', Test) {
+    useJUnitPlatform {
+        includeTags("SMOKE")
+    }
+}
+
+tasks.register('regress_test', Test) {
+    useJUnitPlatform {
+        includeTags("REGRESS")
+    }
+}
